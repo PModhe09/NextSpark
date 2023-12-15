@@ -13,7 +13,7 @@ dist-ssr
 *.local
 
 #Web-App files
-src/firebase
+src/firebase/firebaseKey.js
 
 # Editor directories and files
 .vscode/*
