@@ -1,6 +1,6 @@
 const { connectDatabase } = require('../db/db');
 const admin = require('firebase-admin');
-const serviceAccount = require('../firebase/nextspark-6e6f8-firebase-adminsdk-jtkjq-971841c8fe.json');
+const serviceAccount = JSON.parse(process.env.SECRET_JSON);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
