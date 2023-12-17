@@ -1,5 +1,4 @@
-// controllers/jobController.js
-     
+const { connectDatabase } = require('../db/db');
 const postWorkForReview = async (req, res) => {
     try {
       const db = await connectDatabase();
