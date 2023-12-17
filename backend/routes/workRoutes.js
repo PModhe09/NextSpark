@@ -4,7 +4,7 @@ const workController = require('../controllers/workController');
 
 const router = express.Router();
 
-router.post('/post-to-review', workController.postJobForReview); //
+router.post('/post-to-review', workController.postWorkForReview); //
 router.get('/all-works', workController.getAllWorks);  //fine
 router.get('/my-works/:email', workController.getMyWorks); //fine
 router.patch('/update-work/:id',workController.updateWork);

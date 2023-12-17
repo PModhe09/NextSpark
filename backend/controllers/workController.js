@@ -1,6 +1,6 @@
 // controllers/jobController.js
      
-const postJobForReview = async (req, res) => {
+const postWorkForReview = async (req, res) => {
     try {
       const db = await connectDatabase();
       const allWorksCollection = db.collection('allWorks');
@@ -15,12 +15,12 @@ const postJobForReview = async (req, res) => {
         return res.status(200).send(result);
       } else {
         return res.status(404).send({
-          message: 'Cannot post job for review',
+          message: 'Can not get result of pushed work',
           status: false,
         });
       }
     } catch (error) {
-      console.error('Error posting job for review:', error);
+      //console.error('Error posting work for review:', error);
       return res.status(500).send({
         message: 'Internal Server Error',
         status: false,
@@ -31,14 +31,14 @@ const postJobForReview = async (req, res) => {
 const getAllWorks = async (req, res) => {
     try {
         const db = await connectDatabase();
-        const worksCollection = db.collection('jobs');
+        const worksCollection = db.collection('works');
     
-        const jobs = await worksCollection.find({}).toArray();
+        const works = await worksCollection.find({}).toArray();
     
         return res.status(200).json({
           message: 'All works retrieved successfully',
           status: true,
-          data: jobs,
+          data: works,
         });
       } catch (error) {
         console.error('Error retrieving all works:', error);
@@ -51,8 +51,8 @@ const getAllWorks = async (req, res) => {
 
 const getMyWorks = async (req, res) => {
   const db = await connectDatabase();
-  const jobsCollection = db.collection('jobs');
-  const workByMail = await jobsCollection.find({postedBy:req.params.email}).toArray();
+  const worksCollection = db.collection('works');
+  const workByMail = await worksCollection.find({postedBy:req.params.email}).toArray();
   res.send(workByMail);
 };
 
@@ -64,17 +64,17 @@ const updateWork = async (req, res) => {
 
 const deleteByID = async (req,res)=>{
         const db = await connectDatabase();
-        const jobsCollection = db.collection('jobs');
+        const worksCollection = db.collection('works');
         const id = req.params.id;
         const filter = {_id:new ObjectId(id)};
-        const result = await jobsCollection.deleteOne(filter);
+        const result = await worksCollection.deleteOne(filter);
         res.send(result);
 
 }
 
 
 module.exports = {
-  postJobForReview,
+  postWorkForReview,
   getAllWorks,
   getMyWorks,
   updateWork,

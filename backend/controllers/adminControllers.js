@@ -68,12 +68,12 @@ const toReview = async (req, res) => {
     console.log('inside toReview');
     const db = await connectDatabase();
     const allWorksCollection = db.collection('allWorks');
-    const jobsCollection = db.collection('jobs');
-    const jobId = req.params.workId;
-    console.log(jobId,29)
+    const worksCollection = db.collection('works');
+    const workId = req.params.workId;
+    //console.log(workId,29)
   const { action } = req.body;
 
-  if (!jobId || !action) {
+  if (!workId || !action) {
     return res.status(400).send({
       message: 'Invalid request parameters',
       status: false
@@ -81,11 +81,11 @@ const toReview = async (req, res) => {
   }
 
   try {
-    const job = await allWorksCollection.findOne({ _id: new ObjectId(jobId) });
+    const allWork_work = await allWorksCollection.findOne({ _id: new ObjectId(jobId) });
 
-    if (!job) {
+    if (!allWork_work) {
       return res.status(404).send({
-        message: 'Job not found',
+        message: 'Work not found',
         status: false
       });
     }
@@ -95,19 +95,19 @@ const toReview = async (req, res) => {
 
     // Update the job status based on admin's action
     if (action === 'accept') {
-      job.approvedBy = req.cookies.name;
-      await jobsCollection.insertOne(job); // Move to jobsCollection
+      allWork_work.approvedBy = req.cookies.name;
+      await worksCollection.insertOne(allWork_work); // Move to jobsCollection
     }
 
     // Remove from allWorksCollection in both cases (accept or reject)
     await allWorksCollection.deleteOne({ _id: new ObjectId(jobId) });
 
     return res.status(200).send({
-      message: 'Job review updated successfully',
+      message: 'Work review updated successfully',
       status: true
     });
   } catch (error) {
-    console.error('Error reviewing job:', error);
+   // console.error('Error reviewing work:', error);
     return res.status(500).send({
       message: 'Internal Server Error',
       status: false
