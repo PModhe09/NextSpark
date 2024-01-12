@@ -3,17 +3,17 @@ const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const dotenv = require('dotenv')
 dotenv.config();
 const uri = process.env.URI
-console.log(uri)
+// console.log(uri)
 
 
 
 const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  },
-  ssl: false,
+  // serverApi: {
+  //   version: ServerApiVersion.v1,
+  //   strict: true,
+  //   deprecationErrors: true,
+  // },
+  // ssl: false,
 });
 
 async function connectDatabase() {
