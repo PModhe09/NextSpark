@@ -4,9 +4,9 @@ import InputField from '../components/InputField';
 const Roles = ({ handleChange }) => {
   return (
     <div className="flex flex-col items-center">
-      <h4 className='text-lg font-medium mb-2 text-left'>Work Type</h4>
+      <h4 className='text-lg font-medium mb-3 text-left'>Work Type</h4>
       <div className="text-left space-y-2">
-        <label className='flex items-center space-x-2 cursor-pointer'>
+        <label className='text-left flex items-center cursor-pointer'>
           <input
             type='radio'
             name='workFilter'

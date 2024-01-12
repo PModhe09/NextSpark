@@ -13,14 +13,20 @@ const Home = () => {
   const itemsPerPage = 4;
   
 
-  useEffect(()=>{
-      fetch("jobs.json").then(res=>res.json()).then(
-        data=>{
-            // console.log(data);
-            setJobs(data);
-        }
-      )
-  },[])
+  useEffect(() => {
+    fetch("https://nextspark-backend.onrender.com/works/all-works")
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setJobs(data.data);
+        console.log(jobs)
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        // Handle the error as needed
+      });
+  }, []);
+  
 
   const filteredItems=jobs.filter((job)=>job.role.toLowerCase().indexOf(query.toLowerCase())!==-1);
   console.log("filtered",filteredItems);
@@ -82,9 +88,9 @@ const Home = () => {
   return (
     <div className='text-primary bg-bgc'>
       <HomeSearchBar query={query} setQuery={setQuery}/>
-      <div className='bg-navbg hover:bg-spark md:grid grid-cols-4 gap-8 lg:px-24 px-5 py-20'>
-        <div className='bg-white p-4 rounded'><Sidebar handleChange={handleChange} handleClick={handleClick}/></div>
-        <div className='col-span-2 bg-white p-0 rounded-sm'><Work result={result}/></div>
+      <div className='bg-bigbg min-h-screen md:grid grid-cols-4 gap-8 lg:px-24 px-5 py-20'>
+        <div className='bg-white p-4 rounded-lg'><Sidebar handleChange={handleChange} handleClick={handleClick}/></div>
+        <div className='col-span-2 bg-white p-0 rounded-lg'><Work result={result}/></div>
        
         <div className='bg-white p-4 rounded'><Leaderboard/></div>
       </div>

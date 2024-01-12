@@ -26,7 +26,7 @@ const Card = ({ data }) => {
       </Link>
 
       {/* Apply Button */}
-      <a href={applyLink} className="absolute top-8 transform -translate-y-1/2 right-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
+      <a href={applyLink} className="absolute top-8 transform -translate-y-1/2 right-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-spark hover:text-black">
         Apply
       </a>
     </section>

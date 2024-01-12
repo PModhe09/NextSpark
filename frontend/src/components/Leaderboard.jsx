@@ -8,7 +8,7 @@ const Leaderboard = () => {
     // Function to fetch leaderboard data
     const fetchLeaderboardData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/leaderboard');
+        const response = await fetch('https://nextspark-backend.onrender.com/events/weekly-leaderboard');
         const data = await response.json();
         setLeaderboardData(data);
       } catch (error) {

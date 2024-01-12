@@ -17,7 +17,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className='text-black max-w-screen-2xl container mx-auto x1:px-24 px-4 bg-navbg'>
+    <header className='text-black max-w-screen-2xl container mx-auto x1:px-24 px-4 bg-bigbg'>
       <nav className='flex justify-between items-center py-6'>
         <a href='/' className='flex items-center gap-2 text-2xl'>
           <span>NextSpark</span>

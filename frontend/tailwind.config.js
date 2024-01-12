@@ -12,6 +12,7 @@ export default {
         "bgc":"#fff",
         "navbg":"#3498db",
         "not-today":"#ef5777",
+        "bigbg":"#7ed6df"
         
       },
       

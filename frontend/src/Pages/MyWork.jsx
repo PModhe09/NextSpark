@@ -1,17 +1,19 @@
-import React,{useEffect,useState} from 'react'
+import React,{useContext, useEffect,useState} from 'react'
 import {Link} from 'react-router-dom'
+import { UserDetailsContext } from '../App';
 
 const MyWork = () => {
     const [works,setWorks] = useState([]);
     const [searchText,setSearchText] = useState("");
-    
+    const UserDetail = useContext(UserDetailsContext);
+    console.log(UserDetail)
     useEffect(() => {
 //   const email = 'a@gmail.com';
  // const encodedEmail = encodeURIComponent(email);
 
-  console.log('Making request to:', `http://localhost:3000/my-works/`);
+  //console.log('Making request to:', `http://localhost:3000/my-works/`);
 
-  fetch(`http://localhost:3000/my-works/pmodhe`)
+  fetch(`https://nextspark-backend.onrender.com/works/my-works/t1`)
     .then((res) => res.json())
     .then((data) => {
       console.log('Received data:', data);
@@ -44,7 +46,7 @@ const MyWork = () => {
   return (
     <div className='max-w-screen-2xl container mx-auto x1:px-24 px-4 text-primary'>
        <div className=''>
-           <h1 className='text-center p-4'>Works Posted by Me</h1>
+           <h1 className='text-center p-4'>Works Posted by {UserDetail.displayName}</h1>
            <div className='flex md:rounded-md rounded shadow-sm  md:w-3/4 w-full p-2 text-center mb-2 ml-52'>
                <input onChange={(e)=>setSearchText(e.target.value)} type='text' name='search' id='search' className='py-2 pl-3 border focus:outline-none bg-white  mb-4 w-full ring-1 ring-inset ring-navbg focus-within:ring-2 focus-within:ring-inset focus-within:ring-spark'/>
                <button>Search</button>
@@ -122,17 +124,7 @@ const MyWork = () => {
     </div>
   </div>
 </div>
-<footer className="relative pt-8 pb-6 mt-16">
-  <div className="container mx-auto px-4">
-    <div className="flex flex-wrap items-center md:justify-between justify-center">
-      <div className="w-full md:w-6/12 px-4 mx-auto text-center">
-        <div className="text-sm text-blueGray-500 font-semibold py-1">
-          Made with <a href="https://www.creative-tim.com/product/notus-js" className="text-blueGray-500 hover:text-gray-800" target="_blank">Notus JS</a> by <a href="https://www.creative-tim.com" className="text-blueGray-500 hover:text-blueGray-800" target="_blank"> Creative Tim</a>.
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+
 </section>
        </div>
     </div>
