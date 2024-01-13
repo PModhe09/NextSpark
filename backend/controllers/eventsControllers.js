@@ -27,7 +27,32 @@ const weeklyLeaderBoard = async(req,res)=>{
     }
 
 
+const updateScore = async (req, res) => {
+      const { uid } = req.params; 
+    
+      try {
+        
+        const db = getDatabase();
+        const scoreRef = ref(db, `usersInfo/${uid}/score`);
+        const snapshot = await get(scoreRef);
+    
+        if (snapshot.exists()) {
+          const currentScore = snapshot.val();
+          await set(scoreRef, currentScore + 500);
+        } else {
+          await set(scoreRef, 500);
+        }
+    
+        res.status(200).json({ success: true, message: 'Score updated successfully.' });
+      } catch (error) {
+        console.error('Error updating score:', error);
+        res.status(500).json({ success: false, message: 'Internal Server Error' });
+      }
+};
+    
+
 
 module.exports = {
-    weeklyLeaderBoard
+    weeklyLeaderBoard,
+    updateScore
 }
