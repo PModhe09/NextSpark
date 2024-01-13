@@ -11,9 +11,10 @@ node_modules
 dist
 dist-ssr
 *.local
-
+#env
+.env
 #Web-App files
-src/firebase/firebaseKey.js
+src/firebase/apiKey.js
 
 # Editor directories and files
 .vscode/*

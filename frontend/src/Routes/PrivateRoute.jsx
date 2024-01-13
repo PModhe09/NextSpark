@@ -6,7 +6,7 @@ import { UserDetailsContext } from "../App";
 // eslint-disable-next-line react/prop-types
 const PrivateRoute = ({ element }) => {
   const { userDetails } = useContext(UserDetailsContext);
-
+  console.log(9,userDetails)
   // Replace this with your actual authentication logic
   const isAuthenticated = userDetails !== null;
 
