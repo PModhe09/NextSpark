@@ -9,23 +9,24 @@ import {
 } from "react-router-dom";
 import CreateJob from "../Pages/CreateJob";
 import Login from "../Pages/Login";
+import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
     {
       path: "/",
       element: <App/>,
       children:[
         {
-            path:"/",element:<Home/>
+            path:"/", element: <PrivateRoute element={<Home />} />,
         },
         {
-          path:"/create-job",element:<CreateJob/>
+          path:"/create-job",element:<PrivateRoute element={<CreateJob />} />,
         },
         {
-          path:"/my-work",element:<MyWork/>
+          path:"/my-work",element:<PrivateRoute element={<MyWork />} />
         },
         {
           path:"/edit-work/:id",
-          element:<EditWork/>,
+          element:<PrivateRoute element={<EditWork />} />,
           loader:({params})=>fetch(`http://localhost:3000/all-works/${params.id}`)
         },
         {

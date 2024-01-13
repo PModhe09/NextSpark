@@ -1,5 +1,5 @@
 // Login.jsx
-import React, { useContext } from 'react';
+import React, { useContext,useEffect } from 'react';
 import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from 'firebase/auth';
 import { getDatabase, ref, set } from 'firebase/database';
 import { UserDetailsContext } from '../App';
@@ -23,7 +23,7 @@ const Login = () => {
       // Wait for the state to update before logging
       setTimeout(() => {
         console.log(userDetails);
-      }, 4000);
+      }, 10000);
 
       set(ref(db, 'usersInfo/' + user.uid), {
         displayName: user.displayName,
@@ -47,6 +47,10 @@ const Login = () => {
         // An error happened.
       });
   };
+
+  useEffect(() => {
+    console.log('UserDetails updated:', userDetails);
+  }, [userDetails]);
 
   return (
     <div className='h-screen w-full flex items-center justify-center text-primary'>
