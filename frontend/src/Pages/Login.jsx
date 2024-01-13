@@ -3,6 +3,7 @@ import React, { useContext,useEffect } from 'react';
 import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from 'firebase/auth';
 import { getDatabase, ref, set } from 'firebase/database';
 import { UserDetailsContext } from '../App';
+import firebase from '../firebase/firebase.config'
 
 
 const Login = () => {
