@@ -8,7 +8,7 @@ const Card = ({ data }) => {
 
   return (
     <section className="text-primary m-5 border-2 border-solid border-gray-300 p-2 cursor-pointer relative">
-      <Link to={"/"} className="flex gap-4 flex-col sm:flex-row items-start">
+      <Link to={"/"}  className="flex gap-4 flex-col sm:flex-row items-start">
         <img src={logo} alt="" className="h-20 w-20" />
 
         <div className="">
@@ -26,7 +26,7 @@ const Card = ({ data }) => {
       </Link>
 
       {/* Apply Button */}
-      <a href={applyLink} className="absolute top-8 transform -translate-y-1/2 right-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-spark hover:text-black">
+      <a href={applyLink} target='_blank' rel='noreferrer' className="absolute top-8 transform -translate-y-1/2 right-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-spark hover:text-black">
         Apply
       </a>
     </section>
