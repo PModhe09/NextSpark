@@ -7,7 +7,7 @@ import { UserDetailsContext } from '../App';
     
 const CreateJob = () => {
       const {userDetails} = useContext(UserDetailsContext)
-      //console.log(userDetails.uid)
+      console.log(userDetails.displayName)
     const {
         register,
         handleSubmit,
@@ -18,7 +18,8 @@ const CreateJob = () => {
       
       const onSubmit = (data) => {
             console.log(data)
-            
+            data.postedBy=userDetails.displayName;
+            data.posedByUid=userDetails.uid;
             fetch("https://nextspark-backend.onrender.com/works/post-to-review",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)}).then(res=>res.json()).then((result)=>{
                   console.log(result);
                   // updateScore(userDetails.uid)
@@ -98,10 +99,10 @@ const CreateJob = () => {
                                    <label className='block mb-2 text-lg '>Company Logo : </label>
                                    <input type="text" defaultValue={""} {...register("logo")} className='block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm'/>
                              </div>
-                             <div className='lg:w-1/2 w-full'>
+                             {/* <div className='lg:w-1/2 w-full'>
                                    <label className='block mb-2 text-lg '>Posted by : </label>
-                                   <input type="text" defaultValue={""} {...register("postedBy")} className='block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm'/>
-                             </div>
+                                   <input type="text" defaultValue={userDetails.displayName} {...register("postedBy")} className='block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm'/>
+                             </div> */}
                         </div>
 
                          <input type='submit'/>
