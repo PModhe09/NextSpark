@@ -45,6 +45,7 @@ const Leaderboard = () => {
         </button>
       <ul>
         {leaderboardData.map((person, index) => (
+          person.score!=0?
           <li key={index} className="mb-4 p-2 bg-white rounded-md shadow-md">
             <div className="flex items-center">
               <div className="w-20 h-16 overflow-hidden rounded-full mr-4">
@@ -60,6 +61,8 @@ const Leaderboard = () => {
               </div>
             </div>
           </li>
+          :
+          <></>
         ))}
       </ul>
     </div>

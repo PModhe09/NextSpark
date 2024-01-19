@@ -4,22 +4,17 @@ import { UserDetailsContext } from '../App';
 
 const MyWork = () => {
     const [works,setWorks] = useState([]);
-    const [searchText,setSearchText] = useState("");
+    const [refresh,setRefresh] = useState(false);
     const UserDetail = useContext(UserDetailsContext);
-    console.log(UserDetail)
+   // console.log(UserDetail.userDetails.displayName);
     useEffect(() => {
-//   const email = 'a@gmail.com';
- // const encodedEmail = encodeURIComponent(email);
-
-  //console.log('Making request to:', `http://localhost:3000/my-works/`);
-
-  fetch(`https://nextspark-backend.onrender.com/works/my-works/t1`)
+  fetch(`https://nextspark-backend.onrender.com/works/my-works/${UserDetail.userDetails.displayName}`)
     .then((res) => res.json())
     .then((data) => {
       console.log('Received data:', data);
       setWorks(data);
     });
-}, [searchText]);
+}, [refresh]);
 
    const handleSearch=()=>{
     const filter = works.filter((work)=>work.role.toLowerCase().indexOf(searchText.toLowerCase())!=-1);
@@ -46,10 +41,10 @@ const MyWork = () => {
   return (
     <div className='max-w-screen-2xl container mx-auto x1:px-24 px-4 text-primary'>
        <div className=''>
-           <h1 className='text-center p-4'>Works Posted by {UserDetail.displayName}</h1>
+           <h1 className='text-center p-4'>Works Posted by {UserDetail.userDetails.displayName}</h1>
            <div className='flex md:rounded-md rounded shadow-sm  md:w-3/4 w-full p-2 text-center mb-2 ml-52'>
-               <input onChange={(e)=>setSearchText(e.target.value)} type='text' name='search' id='search' className='py-2 pl-3 border focus:outline-none bg-white  mb-4 w-full ring-1 ring-inset ring-navbg focus-within:ring-2 focus-within:ring-inset focus-within:ring-spark'/>
-               <button>Search</button>
+               {/* <input onChange={()=>setRefresh(!refresh)} type='text' name='search' id='search' className='py-2 pl-3 border focus:outline-none bg-white  mb-4 w-full ring-1 ring-inset ring-navbg focus-within:ring-2 focus-within:ring-inset focus-within:ring-spark'/> */}
+               <button onClick={()=>setRefresh(!refresh)}>Refresh</button>
            </div>
 
            <section className="py-1 bg-blueGray-50">
@@ -109,9 +104,6 @@ const MyWork = () => {
     </td>
     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
       <button className='bg-blue'>EDIT</button>
-    </td>
-    <td className="border-t-0 px-6 bg-blue align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-      <button>EDIT</button>
     </td>
     <td className="border-t-0 px-6 bg-blue align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
     <button onClick={() => handleDelete(work._id)}>DELETE</button>
