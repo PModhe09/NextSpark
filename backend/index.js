@@ -11,7 +11,7 @@ const app = express();  // Creating Express application instance to handle https
 const port = process.env.PORT || 3000; // Defining the server port to the value of the PORT environment variable or use 3000 as fallback
 
 app.use(express.json());  // Enabling parsing of JSON data sent in request body for API interactions
-app.use(cors());         // Allowing cross-origin requests for more flexible API access
+app.use(cors(({credentials: true, origin: 'http://localhost:3000'})));         // Allowing cross-origin requests for more flexible API access
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser())
 

@@ -39,7 +39,7 @@ const logIn = async(req,res) =>{
   const sessionId = uuidv4();
   setUser(sessionId,user);
   res.cookie("uuid",sessionId);
-  return res.json({message:"Login successful"})
+  return res.status(200).json({ sessionId, message: "Login successful" });
 }
 
 const reviewList = async(req,res)=>{
