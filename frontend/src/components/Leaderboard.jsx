@@ -11,7 +11,7 @@ const Leaderboard = () => {
       try {
         const response = await fetch('https://nextspark-backend.onrender.com/events/weekly-leaderboard');
         const data = await response.json();
-        console.log(data);
+        //console.log(data);
         setLeaderboardData(data);
       } catch (error) {
         console.error('Error fetching leaderboard data:', error);
