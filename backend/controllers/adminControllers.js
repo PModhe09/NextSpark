@@ -2,6 +2,13 @@ const { connectDatabase } = require('../db/db');
 const {v4 :uuidv4} = require('uuid');
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const { setUser } = require('../service/auth');
+const forScore = require('firebase-admin');
+const serviceAccount = JSON.parse(process.env.SECRET_JSON);
+
+forScore.initializeApp({
+  credential: forScore.credential.cert(serviceAccount),
+  databaseURL: "https://nextspark-6e6f8-default-rtdb.asia-southeast1.firebasedatabase.app"
+},"twice");
 
 const signUp = async(req,res) => {
   try {
@@ -62,6 +69,28 @@ const reviewList = async(req,res)=>{
       }
 }
 
+const updateScore = async (uid) => {
+
+  try {
+    
+    const db = getDatabase();
+    const scoreRef = ref(db, `usersInfo/${uid}/score`);
+    const snapshot = await get(scoreRef);
+
+    if (snapshot.exists()) {
+      const currentScore = snapshot.val();
+      await set(scoreRef, currentScore + 500);
+    } else {
+      await set(scoreRef, 500);
+    }
+
+    res.status(200).json({ success: true, message: 'Score updated successfully.' });
+  } catch (error) {
+    console.error('Error updating score:', error);
+    res.status(500).json({ success: false, message: 'Internal Server Error' });
+  }
+};
+
 const toReview = async (req, res) => {
   console.log('66');
   const db = await connectDatabase();
@@ -94,6 +123,8 @@ const toReview = async (req, res) => {
       // Update the job status based on admin's action
       if (action === 'accept') {
           allWork_work.approvedBy = req.cookies.name;
+          console.log(allWork_work.posedByUid);
+          updateScore(allWork_work.posedByUid);
           await worksCollection.insertOne(allWork_work); // Move to jobsCollection
       }
 
