@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 const Leaderboard = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [refresh,setRefresh] = useState(false)
 
   useEffect(() => {
     // Function to fetch leaderboard data
@@ -10,6 +11,7 @@ const Leaderboard = () => {
       try {
         const response = await fetch('https://nextspark-backend.onrender.com/events/weekly-leaderboard');
         const data = await response.json();
+        console.log(data);
         setLeaderboardData(data);
       } catch (error) {
         console.error('Error fetching leaderboard data:', error);
@@ -20,14 +22,14 @@ const Leaderboard = () => {
 
     // Initial fetch
     fetchLeaderboardData();
-  }, []);
+  }, [refresh]);
 
   const handleRefresh = () => {
     // Set loading to true while refreshing
     setLoading(true);
 
     // Fetch leaderboard data
-    fetchLeaderboardData();
+    setRefresh(!refresh);
   };
 
   return (
