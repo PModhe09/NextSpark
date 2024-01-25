@@ -84,10 +84,10 @@ const updateScore = async (uid) => {
       await set(scoreRef, 500);
     }
 
-    res.status(200).json({ success: true, message: 'Score updated successfully.' });
+    //res.status(200).json({ success: true, message: 'Score updated successfully.' });
   } catch (error) {
     console.error('Error updating score:', error);
-    res.status(500).json({ success: false, message: 'Internal Server Error' });
+    //res.status(500).json({ success: false, message: 'Internal Server Error' });
   }
 };
 
