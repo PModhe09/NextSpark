@@ -124,7 +124,7 @@ const toReview = async (req, res) => {
       if (action === 'accept') {
           allWork_work.approvedBy = req.cookies.name;
           console.log(allWork_work.posedByUid);
-          updateScore(allWork_work.posedByUid);
+          await updateScore(allWork_work.posedByUid);
           await worksCollection.insertOne(allWork_work); // Move to jobsCollection
       }
 
