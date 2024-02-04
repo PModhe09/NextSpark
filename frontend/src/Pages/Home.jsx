@@ -88,7 +88,7 @@ const Home = () => {
   return (
     <div className='text-primary bg-bgc'>
       <HomeSearchBar query={query} setQuery={setQuery}/>
-      <div className='bg-bigbg min-h-screen md:grid grid-cols-4 gap-8 lg:px-24 px-5 py-20'>
+      <div className='bg-bigbg min-h-screen md:grid grid-cols-4 gap-0 lg:px-24 px-5 py-20'>
         <div className='bg-white p-4 rounded-lg'><Sidebar handleChange={handleChange} handleClick={handleClick}/></div>
         <div className='col-span-2 bg-white p-0 rounded-lg'><Work result={result}/></div>
        
@@ -96,7 +96,7 @@ const Home = () => {
       </div>
       {
           result.length > 0 ? (
-             <div className='flex justify-center mt-4 space-x-8'>
+             <div className='flex justify-center pb-4 space-x-8 bg-bigbg'>
                 <button onClick={prevPage}>Preious</button>
                 <span>Page {currentPage} of {Math.ceil(filteredItems.length/itemsPerPage)}</span>
                 <button onClick={nextPage}>Next</button>

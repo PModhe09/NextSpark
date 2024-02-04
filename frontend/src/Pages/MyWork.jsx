@@ -78,12 +78,12 @@ const MyWork = () => {
           <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                           Pay
                         </th>
-                        <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        {/* <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                           EDIT
                         </th>
                         <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                           DELETE
-                        </th>
+                        </th> */}
           </tr>
         </thead>
 
@@ -102,12 +102,12 @@ const MyWork = () => {
       <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
       {work.pay}
     </td>
-    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+    {/* <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
       <button className='bg-blue'>EDIT</button>
     </td>
     <td className="border-t-0 px-6 bg-blue align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
     <button onClick={() => handleDelete(work._id)}>DELETE</button>
-    </td>
+    </td> */}
   </tr>
 ))}
 

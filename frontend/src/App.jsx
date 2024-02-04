@@ -14,7 +14,7 @@ function App() {
     <UserDetailsContext.Provider value={{ userDetails, setUserDetails }}>
       <Navbar/>
       <Outlet/>
-      <footer>Footers</footer>
+      {/* <footer>Footers</footer> */}
     </UserDetailsContext.Provider>
   )
 }
