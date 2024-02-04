@@ -4,12 +4,13 @@ import { TbLayoutSidebarLeftCollapseFilled } from "react-icons/tb";
 import { GiSplitCross } from "react-icons/gi";
 import { UserDetailsContext } from '../App';
 import { useContext } from 'react';
+import {CircleUserRound} from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setClose] = useState(false);
   //const [showProfile, setShowProfile] = useState(false);
   const UserDetail = useContext(UserDetailsContext);
-
+  console.log(UserDetail);
   
 
   const Toggler = () => {
@@ -18,13 +19,13 @@ const Navbar = () => {
 
   const navItems = [
     { path: '/', title: 'Start a search' },
-    { path: '/my-work', title: 'My Jobs' },
-    { path: '/create-job', title: 'Post a Job' }
+    { path: '/my-work', title: 'My Posts' },
+    { path: '/create-job', title: 'Post' }
   ];
 
   return (
     <header className='text-black max-w-screen-2xl container mx-auto x1:px-24 px-4 bg-bigbg'>
-      <nav className='flex justify-between items-center py-6'>
+      <nav className='flex justify-between items-center'>
         <a href='/' className='flex items-center gap-2 text-2xl'>
           <span>NextSpark</span>
         </a>
@@ -43,7 +44,7 @@ const Navbar = () => {
         </ul>
        
           <div><div className='font-medium text-black space-x-5 hidden lg:block'>
-            <Link to="/login" className='py-2 px-5 border rounded bg-blue-600  hover:bg-spark'>Profile</Link>
+            <Link to="/login" className=' border rounded bg-blue-600 hover:bg-spark'><CircleUserRound size={45} absoluteStrokeWidth={true} strokeWidth={3} /></Link>
           </div></div>
         
 

@@ -31,44 +31,40 @@ const CreateJob = () => {
       console.log(watch("example"))
   return (
     <div className='max-w-screen-2xl container mx-auto x1:px-24 px4'>
-           <div className='bg-navbg py-10 px-4 lg:px-16'>
-                 <form onSubmit={handleSubmit(onSubmit)}>
+           <div className='bg-white py-10 px-4 lg:px-16'>
+                 <form onSubmit={handleSubmit(onSubmit)} className=''>
                         <div className='flex flex-col lg:flex-row items-center justify-between gap-8'>
-                             <div className='lg:w-1/2 w-full'>
-                                   <label className='block mb-2 text-lg '>Role : </label>
-                                   <input type="text" defaultValue={""} {...register("role")} className='block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm'/>
+                             <div className='lg:w-1/2 w-full bg-blue-200 rounded-full p-4 flex items-center'>
+                                   <label className='block mb-2 text-2xl text-black mx-auto pr-3 justify-center items-center'>Role : </label>
+                                   <input type="text" defaultValue={""} {...register("role")} className='block flex-1 border-1 py-1.5 pl-3 text-gray-900 bg-blue-100 placeholder:text-gray-400 focus:outline sm:text-lg rounded-full'/>
                              </div>
-                             <div className='lg:w-1/2 w-full'>
-                                   <label className='block mb-2 text-lg '>Company : </label>
-                                   <input type="text" defaultValue={""} {...register("company")} className='block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm'/>
+                             <div className='lg:w-1/2 w-full bg-blue-200 rounded-full p-4 flex items-center'>
+                                   <label className='block mb-2 text-2xl text-black mx-auto pr-3 justify-center items-center'>Company : </label>
+                                   <input type="text" defaultValue={""} {...register("company")} className='block flex-1 border-1 py-1.5 pl-3 text-gray-900 bg-blue-100 placeholder:text-gray-400 focus:outline sm:text-lg rounded-full'/>
+                             </div>
+                        </div>
+                        <div className='flex flex-col lg:flex-row items-center justify-between gap-8 py-2'>
+                             <div className='lg:w-1/2 w-full bg-blue-200 rounded-full p-4 flex items-center'>
+                                   <label className='block mb-2 text-2xl text-black mx-auto pr-3 justify-center items-center'>Location : </label>
+                                   <input type="text" defaultValue={""} {...register("location")} className='block flex-1 border-1 py-1.5 pl-3 text-gray-900 bg-blue-100 placeholder:text-gray-400 focus:outline sm:text-lg rounded-full'/>
+                             </div>
+                             <div className='lg:w-1/2 w-full bg-blue-200 rounded-full p-4 flex items-center'>
+                                   <label className='block mb-2 text-2xl text-black mx-auto pr-3 justify-center items-center'>Pay : </label>
+                                   <input type="text" defaultValue={""} {...register("pay")} className='block flex-1 border-1 py-1.5 pl-3 text-gray-900 bg-blue-100 placeholder:text-gray-400 focus:outline sm:text-lg rounded-full'/>
                              </div>
                         </div>
                         <div className='flex flex-col lg:flex-row items-center justify-between gap-8'>
-                             <div className='lg:w-1/2 w-full'>
-                                   <label className='block mb-2 text-lg '>location : </label>
-                                   <input type="text" defaultValue={""} {...register("location")} className='block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm'/>
-                             </div>
-                             <div className='lg:w-1/2 w-full'>
-                                   <label className='block mb-2 text-lg '>Pay : </label>
-                                   <input type="text" defaultValue={""} {...register("pay")} className='block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm'/>
-                             </div>
-                             <div className='lg:w-1/2 w-full'>
-                                   <label className='block mb-2 text-lg '>Application Link : </label>
-                                   <input type="text" defaultValue={""} {...register("applyLink")} className='block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm'/>
-                             </div>
-                        </div>
-                        <div className='flex flex-col lg:flex-row items-center justify-between gap-8'>
-                                 <div className='lg:w-1/2 w-full'>
-                                      <label className='block mb-2 text-lg'>Experience : </label>
-                                           <select {...register("xp", { required: true })} className='block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm'>
+                                 <div className='lg:w-1/2 w-full bg-blue-200 rounded-full p-4 flex items-center'>
+                                      <label className='block mb-2 text-2xl text-black mx-auto pr-3 justify-center items-center'>Experience : </label>
+                                           <select {...register("xp", { required: true })} className='block flex-1 border-1 py-1.5 pl-3 text-gray-900 bg-blue-100 placeholder:text-gray-400 focus:outline sm:text-lg rounded-full'>
                                             <option value='0'>Fresher</option>
                                             <option value='0-1'>0-1 YOE</option>
                                             <option value='1+'>1+ YOE</option>
                                             </select>
                                   </div>
-                                 <div className='lg:w-1/2 w-full'>
-                                      <label className='block mb-2 text-lg'>Search Role : </label>
-                                             <select {...register("searchRole", { required: true })} className='block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm'>
+                                 <div className='lg:w-1/2 w-full bg-blue-200 rounded-full p-4 flex items-center'>
+                                      <label className='block mb-2 text-2xl text-black mx-auto pr-3 justify-center items-center'>Search Role : </label>
+                                             <select {...register("searchRole", { required: true })} className='block flex-1 border-1 py-1.5 pl-3 text-gray-900 bg-blue-100 placeholder:text-gray-400 focus:outline sm:text-lg rounded-full'>
                                              <option value='Software Developer'>Software Developer</option>
                                               <option value='Testing'>Testing</option>
                                              <option value='UI/UX'>UI/UX</option>
@@ -77,15 +73,15 @@ const CreateJob = () => {
                                              </select>
                                     </div>
                         </div>
-    <div className='flex flex-col lg:flex-row items-center justify-between gap-8'>
-                            <div className='lg:w-1/2 w-full'>
-                                   <label className='block mb-2 text-lg '>Degree : </label>
-                                   <input type="text" defaultValue={""} {...register("degree")} className='block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm'/>
+    <div className='flex flex-col lg:flex-row items-center justify-between gap-8 mt-3'>
+                            <div className='lg:w-1/2 w-full bg-blue-200 rounded-full p-4 flex items-center'>
+                                   <label className='block mb-2 text-2xl text-black mx-auto pr-3 justify-center items-center'>Degree : </label>
+                                   <input type="text" defaultValue={""} {...register("degree")} className='block flex-1 border-1 py-1.5 pl-3 text-gray-900 bg-blue-100 placeholder:text-gray-400 focus:outline sm:text-lg rounded-full'/>
                              </div>
     
-                        <div className='lg:w-1/2 w-full'>
-                             <label className='block mb-2 text-lg'>Work Type : </label>
-        <select {...register("type", { required: true })} className='block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm'>
+                        <div className='lg:w-1/2 w-full bg-blue-200 rounded-full p-4 flex items-center'>
+                             <label className='block mb-2 text-2xl text-black mx-auto pr-3 justify-center items-center'>Work Type : </label>
+        <select {...register("type", { required: true })} className='block flex-1 border-1 py-1.5 pl-3 text-gray-900 bg-blue-100 placeholder:text-gray-400 focus:outline sm:text-lg rounded-full'>
             <option value='Full-Time'>Full-Time</option>
             <option value='Intern'>Intern</option>
             <option value='Part-Time'>Part-Time</option>
@@ -94,18 +90,19 @@ const CreateJob = () => {
                        </div>
 
      </div>
-     <div className='flex flex-col lg:flex-row items-center justify-between gap-8'>
-                             <div className='lg:w-1/2 w-full'>
-                                   <label className='block mb-2 text-lg '>Company Logo : </label>
-                                   <input type="text" defaultValue={""} {...register("logo")} className='block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm'/>
+     <div className='flex flex-col lg:flex-row items-center justify-between gap-8 mt-3'>
+                             <div className='lg:w-1/2 w-full bg-blue-200 rounded-full p-4 flex items-center'>
+                                   <label className='block mb-2 text-2xl text-black mx-auto pr-3 justify-center items-cente'>Company Logo : </label>
+                                   <input type="text" defaultValue={""} {...register("logo")} className='block flex-1 border-1 py-1.5 pl-3 text-gray-900 bg-blue-100 placeholder:text-gray-400 focus:outline sm:text-lg rounded-full'/>
                              </div>
-                             {/* <div className='lg:w-1/2 w-full'>
-                                   <label className='block mb-2 text-lg '>Posted by : </label>
-                                   <input type="text" defaultValue={userDetails.displayName} {...register("postedBy")} className='block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm'/>
-                             </div> */}
+                             <div className='lg:w-1/2 w-full bg-blue-200 rounded-full p-4 flex items-center'>
+                                   <label className='block mb-2 text-2xl text-black mx-auto pr-3 justify-center items-center'>Application Link : </label>
+                                   <input type="text" defaultValue={""} {...register("applyLink")} className='block flex-1 border-1 py-1.5 pl-3 text-gray-900 bg-blue-100 placeholder:text-gray-400 focus:outline sm:text-lg rounded-full'/>
+                             </div>
                         </div>
 
-                         <input type='submit'/>
+                         <input type='submit' className='relative inline-flex items-center justify-center  mb-2 me-2 overflow-hidden text-xl text-gray-900 rounded-full group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 ml-2 mt-8 p-3 '/>
+                         
                  </form>
            </div>
           
