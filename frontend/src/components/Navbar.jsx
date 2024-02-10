@@ -18,7 +18,7 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { path: '/', title: 'Start a search' },
+    { path: '/jobs-internships', title: 'Start a search' },
     { path: '/my-work', title: 'My Posts' },
     { path: '/create-job', title: 'Post' }
   ];
@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <header className='text-black max-w-screen-2xl container mx-auto x1:px-24 px-4 bg-bigbg sticky top-0'>
       <nav className='flex justify-between items-center'>
-        <a href='/' className='flex items-center gap-2 text-2xl'>
+        <a href='/home' className='flex items-center gap-2 text-2xl'>
           <span>NextSpark</span>
         </a>
 

@@ -10,16 +10,20 @@ import {
 import CreateJob from "../Pages/CreateJob";
 import Login from "../Pages/Login";
 import PrivateRoute from "./PrivateRoute";
+import AllWorks from "../Pages/AllWorks";
 const router = createBrowserRouter([
     {
       path: "/",
       element: <App/>,
       children:[
         {
-            path:"/", element: <PrivateRoute element={<Home />} />,
+            path:"/home", element: <Home/>,
         },
         {
           path:"/create-job",element:<PrivateRoute element={<CreateJob />} />,
+        },
+        {
+          path:"/jobs-internships",element:<PrivateRoute element={<AllWorks />} />,
         },
         {
           path:"/my-work",element:<PrivateRoute element={<MyWork />} />
