@@ -83,15 +83,15 @@ const AllWorks = () => {
 
   return (
     <div className='text-black'>
-      <div className='bg-bigbg min-h-screen md:grid grid-cols-4 gap-0 lg:px-24 px-5 py-20'>
-        <div className='bg-white p-4 rounded-lg'><Sidebar handleChange={handleChange} handleClick={handleClick}/></div>
-        <div className='col-span-2 bg-white  p-0 rounded-lg'><Work result={result}/></div>
+      <div className='bg-slate-200 min-h-screen md:grid grid-cols-4 gap-10 lg:px-2 px-0  py-2 '>
+        <div className='bg-white  rounded-lg'><Sidebar handleChange={handleChange} handleClick={handleClick}/></div>
+        <div className='col-span-2 bg-white  p-0 rounded-lg shadow-lg'><Work result={result}/></div>
        
         <div className='bg-white p-4 rounded'><Leaderboard/></div>
       </div>
       {
           result.length > 0 ? (
-             <div className='flex justify-center pb-4 space-x-8 bg-bigbg'>
+             <div className='flex mx-5 justify-center items-center pb-4 space-x-2 bg-white font-bold rounded-full'>
                 <button onClick={prevPage}>Preious</button>
                 <span>Page {currentPage} of {Math.ceil(filteredItems.length/itemsPerPage)}</span>
                 <button onClick={nextPage}>Next</button>

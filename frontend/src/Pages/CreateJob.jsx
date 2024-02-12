@@ -84,8 +84,8 @@ const CreateJob = () => {
         <select {...register("type", { required: true })} className='block flex-1 border-1 py-1.5 pl-3 text-gray-900 bg-blue-100 placeholder:text-gray-400 focus:outline sm:text-lg rounded-full'>
             <option value='Full-Time'>Full-Time</option>
             <option value='Intern'>Intern</option>
-            <option value='Part-Time'>Part-Time</option>
-            <option value='Contractual'>Contractual</option>
+            {/* <option value='Part-Time'>Part-Time</option>
+            <option value='Contractual'>Contractual</option> */}
         </select>
                        </div>
 

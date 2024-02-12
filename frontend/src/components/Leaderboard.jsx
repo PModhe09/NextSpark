@@ -33,12 +33,15 @@ const Leaderboard = () => {
   };
 
   return (
-    <div className="leaderboard bg-gray-100 p-4 rounded-lg shadow-md">
+    <div className="leaderboard bg-gray-100 p-4 h-full rounded-lg shadow-md">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-l font-bold">🏆 Leaderboard 🏆</h2>
+        <h2 className="text-3xl text-spark shadow-2xl p-0.4 rounded-full shadow-yellow-400  font-bold">🏆 Leaderboard 🏆</h2>
         
       </div>
-      <button
+      <div className='text-center text-red-600 font-semibold p-4 shadow-red-700 shadow-2xl  text-4xl  mt-36'>
+          Coming Soon
+        </div>
+      {/* <button
           onClick={handleRefresh}
           disabled={loading}
           className={`text-white bg-blue-500 py-2 px-4 rounded ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
@@ -66,7 +69,7 @@ const Leaderboard = () => {
           :
           <></>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 };

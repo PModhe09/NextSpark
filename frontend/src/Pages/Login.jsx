@@ -15,6 +15,8 @@ const Login = () => {
   const { setUserDetails } = useContext(UserDetailsContext);
   const {userDetails} = useContext(UserDetailsContext)
 
+  const nav=useNavigate();
+
   const handleSignIn = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
@@ -33,6 +35,7 @@ const Login = () => {
         email: user.email,
         displayPicture: user.photoURL,
       });
+      nav('/jobs-internships')
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -84,7 +87,7 @@ const Login = () => {
   const navigate = useNavigate();
   return (
     
-    <div className='h-screen w-full mt-20  text-primary'>
+    <div className='block mx-auto justify-center items-center  mt-20  text-primary'>
     {
       console.log(userDetails)
     }
@@ -92,42 +95,44 @@ const Login = () => {
     {
       userDetails?
       <>
-      <button
-  className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow'
-  onClick={handleSignOut}
->
-  Sign Out
-</button>
-      <div>
+      <div className=''>
         <div className='flex justify-center items-center '>
-         <img src= {userDetails.photoURL} height={250} width={250} className='rounded-full'/>
+         <img src= {userDetails.photoURL} height={100} width={150} className='rounded-full'/>
         </div>
         <div className='flex justify-center items-center mt-20'>
-          <h6>{userDetails.displayName}</h6>
+          <h6 className='text-3xl'>{userDetails.displayName}</h6>
         </div>
         <div className='flex justify-center items-center mt-2'>
-          <h6>Joined on {giveDate(userDetails.metadata.creationTime)}</h6>
+          <h6 className='text-md'>Joined on {giveDate(userDetails.metadata.creationTime)}</h6>
         </div>
         <div className='flex justify-center items-center mt-2'>
-          <h6>Email : {userDetails.email}</h6>
+          <h6 className='text-md'>Email : {userDetails.email}</h6>
         </div>
+        <div className='flex justify-center items-center mt-5'>
+        <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full'
+       onClick={handleSignOut}>
+             Sign Out
+        </button>
+        </div>
+        t
+        
       </div>
        
 </>
       
       :
-      <div className='border-double border-4 p-1.5 border-bigbg ml-40 mr-40 flex fixed left-10% right-10% bottom-10%'>
-      <h5>
-      Fasten your Job/Internship Search with NextSpark
-      </h5>
-      {/* <h5>
-       Experience, Role based Filtering with Dynamic Leaderboards to enhance community based colloboration
-      </h5> */}
-      <div>
-      <button className='bg-blue-500 hover:bg-blue-700 m-1.5 text-white font-bold py-2 px-4 rounded shadow' onClick={handleSignIn}>
-        SignIn
-      </button>
+      <div className='justify-center container mx-auto flex'>
+      <div className='text-center p-5 block border-blue-600 bg-spark border-4 w-3/4 rounded-2xl'>
+         <h5 className='text-4xl text-white mb-7'>
+            Fasten your Job/Internship Search with NextSpark
+        </h5>
+        <div>
+           <button className='bg-spark border-2 hover:bg-red-500 border-blue-600 m-1.5 text-white font-bold py-2 px-4 rounded-lg mx-auto block' onClick={handleSignIn}>
+              Sign In with Google
+            </button>
+         </div>
       </div>
+            
       </div>
 
     }

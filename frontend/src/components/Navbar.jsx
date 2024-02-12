@@ -10,7 +10,8 @@ const Navbar = () => {
   const [isOpen, setClose] = useState(false);
   //const [showProfile, setShowProfile] = useState(false);
   const UserDetail = useContext(UserDetailsContext);
-  console.log(UserDetail);
+  const updatedHref = UserDetail.userDetails === null ? '/home' : '/jobs-internships';
+  console.log(13,UserDetail);
   
 
   const Toggler = () => {
@@ -24,9 +25,9 @@ const Navbar = () => {
   ];
 
   return (
-    <header className='text-black max-w-screen-2xl container mx-auto x1:px-24 px-4 bg-bigbg sticky top-0'>
+    <header className='text-black max-w-screen-2xl container mx-auto x1:px-24 px-12 py-0 bg-yellow-300 sticky z-10'>
       <nav className='flex justify-between items-center'>
-        <a href='/home' className='flex items-center gap-2 text-2xl'>
+        <a href={updatedHref} className='flex items-center gap-2 text-4xl'>
           <span>NextSpark</span>
         </a>
 
@@ -43,9 +44,10 @@ const Navbar = () => {
           ))}
         </ul>
        
-          <div><div className='font-medium text-black space-x-5 hidden lg:block'>
-            <Link to="/login" className=' border rounded bg-blue-600 hover:bg-spark'><CircleUserRound size={45} absoluteStrokeWidth={true} strokeWidth={3} /></Link>
-          </div></div>
+          <div className=' text-black lg:block'>
+            <Link to="/login" className=' border rounded bg-blue-600 hover:bg-spark'><CircleUserRound size={30} absoluteStrokeWidth={true} strokeWidth={1} /></Link>
+            <span></span>
+          </div>
         
 
         <div className='md:hidden block'>
