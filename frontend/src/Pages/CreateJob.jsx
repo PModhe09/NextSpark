@@ -100,8 +100,11 @@ const CreateJob = () => {
                                    <input type="text" defaultValue={""} {...register("applyLink")} className='block flex-1 border-1 py-1.5 pl-3 text-gray-900 bg-blue-100 placeholder:text-gray-400 focus:outline sm:text-lg rounded-full'/>
                              </div>
                         </div>
-
-                         <input type='submit' className='relative inline-flex items-center justify-center  mb-2 me-2 overflow-hidden text-xl text-gray-900 rounded-full group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 ml-2 mt-8 p-3 '/>
+                        <div className=''>
+                            <input type='submit' className='relative inline-flex items-center justify-center   mb-2 me-2 overflow-hidden text-xl text-gray-900 rounded-full group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 ml-2 mt-8 p-3 '/>
+                            <span className='text-gray-500 border-2 p-3 rounded-full ml-10'><span className='text-black'>Note : </span>Your Post will first go to NextSpark Team for approval</span>
+                        </div>
+                         
                          
                  </form>
            </div>
