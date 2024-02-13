@@ -2,6 +2,7 @@ import React from 'react';
 import {useForm} from 'react-hook-form';
 import { useContext } from 'react';
 import { UserDetailsContext } from '../App';
+import toast,{Toaster} from 'react-hot-toast';
 
 
     
@@ -24,6 +25,9 @@ const CreateJob = () => {
                   console.log(result);
                   // updateScore(userDetails.uid)
                   console.log(userDetails.uid,43);
+                  toast('Post transfered to NextSpark Team for Approval', {
+                        icon: '⏳',
+                      });
                   
             })
       }
@@ -107,6 +111,7 @@ const CreateJob = () => {
                          
                          
                  </form>
+                 <Toaster/>
            </div>
           
            
