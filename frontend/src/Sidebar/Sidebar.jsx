@@ -1,5 +1,5 @@
 import React from 'react'
-import Roles from './Roles'
+import Roles from './WorkType'
 import Experience from './Experience'
 
 const Sidebar = ({handleClick,handleChange}) => {

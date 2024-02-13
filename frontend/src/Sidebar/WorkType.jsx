@@ -30,7 +30,7 @@ const Roles = ({ handleChange }) => {
           <input
             type='radio'
             name='workFilter'
-            value='Internship'
+            value='Intern'
             onChange={handleChange}
             className='form-radio h-3 w-3 text-spark'
           />
